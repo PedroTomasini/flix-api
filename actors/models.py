@@ -18,6 +18,7 @@ NATIONALITY_CHOICES = (
     ('JP', 'Japan'),
 )
 
+
 class Actor(models.Model):
     name = models.CharField(max_length=255)
     birthday = models.DateField(blank=True, null=True)
@@ -26,4 +27,3 @@ class Actor(models.Model):
 
     def __str__(self):
         return self.name
-
