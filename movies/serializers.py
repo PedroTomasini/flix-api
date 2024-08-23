@@ -25,11 +25,11 @@ class MovieModelSerializer(serializers.ModelSerializer):
 
 class MovieListDetailSerializer(serializers.ModelSerializer):
     rate = serializers.SerializerMethodField(read_only=True)
-    
+
     class Meta:
         model = Movie
         fields = '__all__'
-    
+
     # Soma média das estrelas em Reviews de cada filme
     def get_rate(self, obj):
         rate = obj.reviews.aggregate(Avg('stars'))['stars__avg']

@@ -10,7 +10,7 @@ from reviews.models import Review
 class MovieCreateListView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalDefautPermission,)
     queryset = Movie.objects.all()
-    
+
     def get_serializer_class(self):
         if self.request.method == 'GET':
             return MovieListDetailSerializer
